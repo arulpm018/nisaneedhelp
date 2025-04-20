@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Need Help</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin: 0;
+        }
+        .help-button {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            color: white;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .help-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.5);
+        }
+        .help-button:active {
+            transform: scale(0.98);
+        }
+        .love-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 105, 180, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+        }
+        .contact-options {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        .options-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 320px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .options-title {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        .options-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #ff4757, #ff6b81);
+            border-radius: 3px;
+        }
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .contact-option {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .contact-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .discord {
+            background: linear-gradient(135deg, #5865F2, #7289da);
+        }
+        .whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        .option-icon {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        .option-label {
+            font-size: 14px;
+        }
+        .close-btn {
+            background-color: transparent;
+            color: #666;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .close-btn:hover {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Butuh Cerita atau Bantuan Tekan Tombol dibawah!</h1>
+        <button class="help-button" onclick="showLoveMessage()">I NEED HELP</button>
+    </div>
+
+    <div class="love-message" id="loveMessage">
+        I LOVE YOU AND ALWAYS BE THERE FOR YOU ❤️
+    </div>
+
+    <div class="contact-options" id="contactOptions">
+        <div class="options-container">
+            <h2 class="options-title">Pilih salah satu^-^</h2>
+            <div class="contact-buttons">
+                <a href="https://discord.com/users/arulpm" class="contact-option discord">
+                    <div class="option-icon">D</div>
+                    <div class="option-label">Discord</div>
+                </a>
+                <a href="https://wa.me/081272175568" class="contact-option whatsapp">
+                    <div class="option-icon">W</div>  
+                    <div class="option-label">WhatsApp</div>
+                </a>
+            </div>
+            <button class="close-btn" onclick="hideOptions()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showLoveMessage() {
+            document.getElementById('loveMessage').style.display = 'flex';
+            
+            // Show the love message for 2 seconds, then show contact options
+            setTimeout(function() {
+                document.getElementById('loveMessage').style.display = 'none';
+                showOptions();
+            }, 4000);
+        }
+        
+        function showOptions() {
+            document.getElementById('contactOptions').style.display = 'flex';
+        }
+        
+        function hideOptions() {
+            document.getElementById('contactOptions').style.display = 'none';
+        }
+        
+        // Close popup when clicking outside
+        document.getElementById('contactOptions').addEventListener('click', function(event) {
+            if (event.target === this) {
+                hideOptions();
+            }
+        });
+        
+        // Also close love message when clicking on it
+        document.getElementById('loveMessage').addEventListener('click', function() {
+            document.getElementById('loveMessage').style.display = 'none';
+            showOptions();
+        });
+    </script>
+</body>
+</html>
